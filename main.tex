@@ -1,0 +1,418 @@
+%
+%Academic CV LaTeX Template
+% Author: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% License: MIT
+%
+% For errors, suggestions, or improvements, please contact:
+% Email: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{same}
+
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+% Font options
+\newcommand{\headerfonti}{\fontfamily{phv}\selectfont} % Helvetica-like (similar to Arial/Calibri)
+\newcommand{\headerfontii}{\fontfamily{ptm}\selectfont} % Times-like (similar to Times New Roman)
+\newcommand{\headerfontiii}{\fontfamily{ppl}\selectfont} % Palatino (elegant serif)
+\newcommand{\headerfontiv}{\fontfamily{pbk}\selectfont} % Bookman (readable serif)
+\newcommand{\headerfontv}{\fontfamily{pag}\selectfont} % Avant Garde-like (similar to Trebuchet MS)
+\newcommand{\headerfontvi}{\fontfamily{cmss}\selectfont} % Computer Modern Sans Serif
+\newcommand{\headerfontvii}{\fontfamily{qhv}\selectfont} % Quasi-Helvetica (another Arial/Calibri alternative)
+\newcommand{\headerfontviii}{\fontfamily{qpl}\selectfont} % Quasi-Palatino (another elegant serif option)
+\newcommand{\headerfontix}{\fontfamily{qtm}\selectfont} % Quasi-Times (another Times New Roman alternative)
+\newcommand{\headerfontx}{\fontfamily{bch}\selectfont} % Charter (clean serif font)
+
+\begin{document}
+\headerfontiii
+
+% Header
+\begin{center}
+    {\Huge\textbf{Hardik Chhipa}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    +91 9460626737 | \href{mailto:youremail@example.com}{hardikchhipa28@gmail.com} 
+    }
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+    \small{
+    \socialicon{\faLinkedin} \href{https://www.linkedin.com/in/hardik-chhipa-303040242/}{Hardik Chhipa} | 
+    \socialicon{\faGithub} \href{https://github.com/FRAGGERR}{FRAGGERR} | 
+    \ieeeicon{\includegraphics[height=1.3em]{ieee_collabratec_icon.png}} \href{https://scholar.google.com/citations?view_op=list_works&hl=en&authuser=6&user=gkiB_IYAAAAJ&gmla=AC6lMd-0poSh7tq9ezbzDfRJSa-NquRHxjVIdo_oFSM2YR5FVdrQCYbMS1pLZeevEtG_N6w83qcwVhV2QhL0FTc62e33QaWSBC_99hRvIHs}{Hardik Chhipa} |
+    \socialicon{\faTwitter} \href{https://x.com/HardikChhipa}{@HardikChhipa}
+    }
+\end{center}
+\vspace{-6mm}
+\begin{center}
+    \small{Bhilwara,  Rajasthan - 311001,  India}
+\end{center}
+
+\vspace{-4mm}
+
+\section{\textbf{Overview}}
+\vspace{1mm}
+\small{
+Passionate machine learning enthusiast with a strong interest in Machine Learning, Computer Vision, and Data Analysis. Committed to driving impactful real-world solutions through a blend of creativity and developing technical expertise in AI technologies as a student.
+}
+\vspace{-2mm}
+
+
+
+\section{\textbf{Experience}}
+\vspace{-0.4mm}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+      {{Deep Learning Research Intern \href{https://www.iitj.ac.in//}{@IIT Jodhpur}  [\href{https://github.com/FRAGGERR/BYOL-Bio-BERT-ON-MIMIC-Chest-X-ray-Dataset}{\faGithub}}]}{Jodhpur, India}
+      {Deep Learning Engineer}{June 2024 – August 2024}
+      \resumeItemListStart
+        \item Developed a self-supervised learning classifier using the MIMIC dataset.
+        \item Utilized BYOL for image analysis, BERT, and Bio-BERT for text extraction.
+        \item Implemented VICReg for loss calculation to enhance model performance.
+      \resumeItemListEnd 
+  \resumeSubheading
+    {Research on Lightweight CNN for Diabetic Retinopathy Detection [\href{https://github.com/FRAGGERR/Diabetic-Retinopathy}{\faGithub}]}{Chennai, India}
+    {Machine Learning Engineer}{May 2023 - July 2024}
+    \resumeItemListStart
+      \item Explored various CNN architectures (DenseNet, MobileNet, ResNet, Xception, Inception) \newline
+      for diabetic retinopathy detection.
+      \item Employed knowledge distillation to create a lighter student model mentored by DenseNet and others.
+      \item Achieved 68.77\% validation accuracy on a diverse Kaggle dataset, \newline focusing on practical deployment in medical devices.
+      \item Presented the paper on the above work at ICOECA 2024.
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{SRM Institute of Science and Technology}{Chennai, India}
+{BTech, Computer Science Engineering}{September 2021 - June 2025}
+\resumeItemListStart
+\item CGPA: 8.8/10.00
+\resumeItemListEnd
+
+\resumeSubheading
+{Central Academy}{Bhilwara, India}
+{Higher Secondary Education}{June, 2021}
+\resumeItemListStart
+\item Grade: 81.0\%
+\resumeItemListEnd
+
+\resumeSubheading
+{Central Academy}{Bhilwara, India}
+{Secondary Education}{May, 2019}
+\resumeItemListStart
+\item GPA: 78.8\%
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Projects}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+  {Project A: [BERT-Driven Insights: Advanced Sentiment Analysis on Social Media]}
+  {Tools: [Python, Transformers (Hugging Face), PyTorch, Pandas, Scikit-learn, NLTK, Matplotlib, Plotly, Git.]}
+  {June 2024 - Augest 2024}
+  {{}[\href{https://github.com/FRAGGERR/BERT-Driven-Insights-Advanced-Sentiment-Analysis-on-Social-Media}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+  \item Developed a BERT-based sentiment analysis system for accurately detecting sentiments in social \newline media posts, significantly enhancing the handling of slang, sarcasm, and complex linguistic patterns.
+  \item Implemented BERT's deep contextual embeddings for sentiment classification, achieving \newline an accuracy rate of over 92\%, outperforming traditional models like VADER.
+  \item Applied advanced NLP techniques to analyze subtle attitudes in social media content, facilitating \newline informed decision-making and strategic planning across various domains.
+\resumeItemListEnd
+
+\resumeProject
+  {Project B: [\href{https://campus-aide-w3cg.vercel.app/}{Campus Aide}]} 
+  {Tools: [HTML, CSS, JavaScript, Firebase, Ionic, TypeScript, Geolocation API]}
+  {March 2024}
+  {{}[\href{https://github.com/your-username/project-b}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+  \item Developed an inclusive safety and accessibility application, achieving real-time emergency \newline reporting and vehicle monitoring.
+  \item Implemented real-time safety alerts, processing large volumes of data from campus \newline sensors and user reports.
+  \item Created interactive visualizations for tracking vehicle movements and optimizing shuttle operations, \newline enhancing transportation efficiency.
+  \item Developed a community engagement module for easy integration with existing campus systems,\newline encouraging user feedback on accessibility and safety.
+\resumeItemListEnd
+
+\resumeProject
+  {Project C: [{\href{https://drive.google.com/file/d/17RJvMa6jfTayk6fS0WzifNTPP8o7HixD/view?usp=sharing}{Machine Learning Data Analysis for HeatSink Design}}]} 
+  {Tools: [Ansys Icepak]}
+  {October 2023}
+  {{}}
+\resumeItemListStart
+  \item Fine-tuned heatsink designs through GANs in collaboration with Intel Lab at SRM IST.
+  \item Research innovations in thermal management for data centers and edge computing systems.
+  \item Utilizing machine learning to optimize cooling efficiency and energy efficiency.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{\textbf{Publications and Accepted Papers} \hfill \textcolor{darkblue}{\scriptsize C=Conference, A=Accepted Papers}}
+\vspace{0.2mm}
+\small{
+\begin{enumerate}[leftmargin=*, labelsep=0.5em, align=left, widest={[\textbf{S.1}]}, itemindent=0em, label={\textbf{[\arabic*]}]}]
+\item[\textbf{[C.1]}] B. Baranidharan, J. J and Hardik Chhipa, "\href{https://ieeexplore.ieee.org/abstract/document/10612445?casa_token=rpJ8ZXsoy_kAAAAA:DmU-oirg1z9ERnhTjBussnRwoP2MyYhYu2JnKPs3xPpXf0bkRpppBlyvZZ_2cZdWMGEw4Ay8pHxsWw}{Light Weight CNN Based on Knowledge Distillation for Diabetic Retinopathy Detection}," \textbf{2024 International Conference on Expert Clouds and Applications (ICOECA)}, Bengaluru, India, 2024, pp. 860-864, doi: 10.1109/ICOECA62351.2024.00151. keywords: {Knowledge engineering;Diabetic retinopathy;Analytical models;Accuracy;Medical devices;Manuals;Blindness;Diabetic Retinopathy;Convolutional Neural Networks;Knowledge Distillation;Teacher Student model},
+
+\item[\textbf{[A.1]}] Hardik Chhipa, Janenie J, Manas Singhal, and B.K. Gnanavel. "\href{https://drive.google.com/file/d/1aLORR9w4USbcnctFBxFVzvf-Fedswtaq/view?usp=sharing}{Next-Generation Electronics Packaging Technologies for High-Performance Applications.}" Paper presented at the \textbf{ASME 2024 International Technical Conference and Exhibition on Packaging and Integration of Electronic and Photonic Microsystems (InterPACK 2024)}, \textit{San Jose, California,} October 8-10, 2024. 
+
+
+\section*{\hspace{-3em}\textbf{Skills}} 
+\vspace{-0.4mm}
+ \resumeHeadingSkillStart
+  \resumeSubItem{Programming Languages:}
+    {Python, C, C++, Java, JavaScript}
+  \resumeSubItem{Web Technologies:}
+    { HTML, CSS, JavaScript, Firebase, Git, Github}
+  \resumeSubItem{Database Systems:}
+    {MySql, Oracel}
+  \resumeSubItem{Data Science \& Machine Learning:}
+    {Tenserflow, Pytorch, Numpy, Pandas, Scikit learn, Keras, Matplotlib, Plotly, Seaborn, OpenCV, nltk, Transformers Hugging Face}
+  \resumeSubItem{Specialized Area:}
+    {Machine Learning, Deep Learning, Natural language processing, Computer Vision}
+  \resumeSubItem{Other Tools \& Technologies:}
+    {Electronic Thermal Management: Ansys Icepak, Microsoft Power BI, Mermaid, Docker, Linux}
+  \resumeSubItem{Research Skills:}{Research Design, Methodology, Scientific Writing, Communication and Architecture design}
+ \resumeHeadingSkillEnd
+
+\section*{\hspace{-3em}\textbf{Honors and Awards}}
+\vspace{-0.4mm}
+\begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
+\textbf{\textit{3rd place}} - March 2024\newline \hspace{10mm}Philips Ideathone \newline \hspace{10mm}\textbf{\textit{\href{https://www.linkedin.com/feed/update/urn:li:activity:7171887717646024705/}{Summer Internship Offer}}} & \textbf{\textit{2nd place}} - May 2022 \newline \hspace{5mm}Ultron 5.0, \newline \hspace{5mm}SRM Institute of Science and Technology, Chennai \\
+\end{tabular}
+
+
+% % \resumeProject
+% {I. 3rd Place in Ideathone} \newline
+% {    Philips India} 
+% {March 2024}
+  
+% % \resumeProject
+% {II. 2nd Place in Ultron 5.0}
+% {SRM Institute of Science and Technology, Chennai}
+% {March 2022}
+
+\resumeSubHeadingListEnd
+
+\vspace{-6mm}
+\section{\textbf{Leadership Experience}}
+\vspace{-0.4mm}
+\resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+\resumeProject
+  {Vice President – Technical Writing}
+  {SRM IET On Campus, Chennai}
+  {January 2023 - March 2023}\newline
+
+\\
+\resumeProject
+  {Technical Head}
+  {SRM IET On Campus, Chennai}
+  {March 2023 - July 2024}
+  {{}}
+\resumeItemListStart
+
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\resumeSubHeadingListEnd
+
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Certifications}}
+\vspace{-0.2mm}
+\resumeSubHeadingListStart
+
+\resumePOR{}{\href{https://drive.google.com/file/d/10v81xu_aYVRrRxQmFVDQrExdRKHZZ6G2/view?usp=sharing}{
+\textbf{⁠⁠Machine Learning for Engineering and Science Applications - NPTEL}
+}}{April 2024}
+
+\resumePOR{}{\href{https://www.credly.com/badges/edcd273f-f120-4224-93de-c85dd71c1f30/public_url}{
+\textbf{⁠⁠AWS Academy graduate - AWS Cloud foundations (AICTE)}
+}}{February 2024}
+
+\resumePOR{}{\href{https://www.credly.com/badges/db5f1d43-0991-42b7-850c-6d0900bc9fda/public_url}{
+\textbf{Network Addressing and Basic Troubleshooting}
+}}{November 2023}
+
+\resumePOR{}{\href{https://drive.google.com/file/d/1NP5N83fWxUFy9v4iBvEtFTpKYqnTY4gX/view?usp=sharing}{
+\textbf{⁠⁠⁠⁠Introduction to Machine learning - NPTEL}
+}}{September 2023}
+
+\resumePOR{}{\href{https://drive.google.com/file/d/14eFDuDzRQOM6YdGLqYvfQeovyIZYlo1b/view?usp=sharing}{
+\textbf{Python for Data Science IIT Kharagpur - NPTEL}
+}}{August 2023}
+
+\resumePOR{}{\href{https://www.credly.com/badges/a9a87813-93e1-4e8d-9304-76004a4192cc/public_url}{
+\textbf{⁠⁠⁠⁠Introduction to Packet tracer - CISCO}
+}}{April 2023}
+
+\resumePOR{}{\href{https://www.credly.com/badges/a70b4afd-1dd3-4d96-939e-6fc642849270/public_url}{
+\textbf{AWS Academy graduate - AWS Machine Learning foundations}
+}}{March 2023}
+
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Additional Information}}
+\vspace{-0.4mm}
+\small{
+\vspace{+3mm}
+\textbf{Languages:} 
+\begin{enumerate}[label=\Roman*.]
+    \item English (Full Professional Proficiency)
+    \item Hindi (Native Proficiency)
+    \item French (Elementary Proficiency)
+\end{enumerate}
+\vspace{+3mm}
+
+\resumeSubHeadingListEnd
+\textbf{Interests:} \href{https://www.goodreads.com/user_challenges/41964912}{Reading}, Gaming, Video Editing.
+}
+\vspace{-4mm}
+
+\end{document}
