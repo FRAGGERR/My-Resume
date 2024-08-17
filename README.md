@@ -1,2 +1,2 @@
 # My-Resume
-![Resume!](https://github.com/user-attachments/files/16644238/Final_Resume___By_hardik_16_08_24_.pdf)
+![Page-1(Resume)](https://github.com/user-attachments/assets/f819309b-e2ee-4d22-95d0-57b5af944805)
